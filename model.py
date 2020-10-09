@@ -11,12 +11,11 @@ X_train=train_data.drop(['Item_Outlet_Sales','Item_Identifier','Outlet_Identifie
 y_train=train_data['Item_Outlet_Sales']
 X_test=test_data.drop(['Item_Identifier','Outlet_Identifier'],axis=1).copy()
 
-from xgboost import XGBRegressor
-
-model=XGBRegressor(objective ='reg:squarederror',n_estimators=1000,learning_rate=0.05)
+from sklearn.tree import DecisionTreeRegressor
+model=DecisionTreeRegressor(max_depth=15,min_samples_leaf=100)
 model.fit(X_train,y_train)
-
 y_pred=model.predict(X_test)
+
 
 pickle_out=open("model.pkl","wb")
 pickle.dump(model, pickle_out)
