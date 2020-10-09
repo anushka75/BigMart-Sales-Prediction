@@ -1,4 +1,4 @@
-Python==3.8
+Python==3.6.12
 Streamlit==0.67.1
 numpy==1.18.1
 scipy==1.4.1
